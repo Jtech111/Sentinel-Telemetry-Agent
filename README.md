@@ -21,4 +21,11 @@ The following Kusto query is used by the Sentinel Analytics Rule to detect recen
 ```kusto
 NomadMacTelemetry_CL
 | where TimeGenerated > ago(1h)
+
 | project TimeGenerated, DeviceName_s, PublicIP_s, City_s, ISP_s
+## Proof of Execution
+Here is the script successfully authenticating and transmitting the payload from the macOS endpoint:
+![Terminal Success](terminal-success.png)
+
+Here is the automated Incident triggered in the Microsoft Defender XDR queue by the custom Sentinel Analytics Rule:
+![Sentinel Alert](sentinel-alert.png)
