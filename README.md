@@ -29,3 +29,16 @@ Here is the script successfully authenticating and transmitting the payload from
 
 Here is the automated Incident triggered in the Microsoft Defender XDR queue by the custom Sentinel Analytics Rule:
 ![Sentinel Alert](sentinel-alert.png)
+
+---
+
+## Version 1.1 Update: Active Process Hunting 
+**Upgrade:** Engineered a new Python logic block utilizing the `subprocess` module to actively parse the macOS process tree. 
+**Result:** The SIEM no longer just knows *where* the endpoint is; it knows exactly *what* is running on it in real-time. Malicious background processes are immediately packaged into the JSON envelope and flagged in the Defender XDR queue.
+
+**Proof of Execution (V1.1):**
+Here is the endpoint actively hunting and packaging the processes:
+![V1.1 Terminal Execution](v1-terminal.png)
+
+Here is the custom KQL query proving the process array successfully ingested into the Azure Log Analytics Workspace:
+![V1.1 Sentinel Ingestion](v1-sentinel.png)
